@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Painel Zero - Login e Cadastro</title>
+    <link rel="icon" href="/imagem/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="logo-section">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1 id="main-title">Zero Satus</h1>
+        <p class="subtitle" id="main-subtitle">PLATAFORMA ACADÊMICA</p>
+    </div>
+
+    <div class="login-container">
+        <button type="button" class="btn-google" id="google-login-btn">
+            <i class="fab fa-google"></i>
+            ENTRAR COM GOOGLE
+        </button>
+
+        <div class="divider">
+            <span>ou</span>
+        </div>
+
+        <!-- FORMULÁRIO COM CAMPOS FALSOS PARA AUTOCMPLETE -->
+        <form id="auth-form" autocomplete="off">
+            <!-- Campos falsos para enganar autocomplete do navegador -->
+            <input type="text" style="display:none" aria-hidden="true" tabindex="-1">
+            <input type="password" style="display:none" aria-hidden="true" tabindex="-1">
+            <input type="email" style="display:none" aria-hidden="true" tabindex="-1">
+
+            <!-- Campo oculto anti-autocomplete -->
+            <div style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
+                <input type="text" name="fakeusername" id="fakeusername" tabindex="-1" autocomplete="off">
+                <input type="password" name="fakepassword" id="fakepassword" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div id="nome-field" class="input-group" style="display: none;">
+                <input type="text" id="nome" placeholder="Seu nome completo"
+                       autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       spellcheck="false"
+                       data-lpignore="true"
+                       data-1p-ignore="true">
+            </div>
+            <div class="input-group">
+                <input type="email" id="email"
+                       autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       spellcheck="false"
+                       data-lpignore="true"
+                       data-1p-ignore="true"
+                       placeholder="seu@email.com" required>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password"
+                       autocomplete="new-password"
+                       data-lpignore="true"
+                       data-1p-ignore="true"
+                       placeholder="Sua senha" required>
+            </div>
+            <button type="submit" class="btn-primary" id="submit-btn">
+                <i class="fas fa-sign-in-alt"></i> ENTRAR COM EMAIL
+            </button>
+        </form>
+
+        <div class="register-link">
+            <a href="#" id="toggle-mode-link">Não tem conta? Cadastre-se</a>
+        </div>
+
+        <div class="info-text">
+            <i class="fas fa-shield-alt"></i>
+            Login seguro e sincronização em nuvem
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<!-- ============================================ -->
+<!-- SUPABASE CDN (OBRIGATÓRIO)                   -->
+<!-- ============================================ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- ============================================ -->
+<!-- SERVIÇOS DO SISTEMA (ORDEM CORRETA)          -->
+<!-- ============================================ -->
+<script src="../supabase-client.js"></script>
+<script src="../database-service.js"></script>
+<script src="../realtime-sync.js"></script>
+<script src="../cache-manager.js"></script>
+<script src="../shared-data.js"></script>
+<script src="../sync-helper.js"></script>
+
+<!-- ============================================ -->
+<!-- FUNCIONALIDADES ADICIONAIS                   -->
+<!-- ============================================ -->
+<script src="../daily-phrases.js"></script>
+<script src="../notes-sync.js"></script>
+
+<!-- ============================================ -->
+<!-- SCRIPT DA PÁGINA (VERSÃO CORRIGIDA)          -->
+<!-- ============================================ -->
+<script src="script.js"></script>
+</body>
+</html>
